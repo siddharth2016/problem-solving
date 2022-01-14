@@ -9,7 +9,7 @@ public class NumericTrianglePattern {
 
         for (int i=0; i<N; i++) {
 
-            for(int j=0; j < (2*N - 2*(i+1))/2; j++) {
+            for(int j=0; j < (N - (i+1)); j++) {
                 System.out.print(" ");
             }
 
@@ -21,7 +21,7 @@ public class NumericTrianglePattern {
                 System.out.print(j);
             }
 
-            for(int j=0; j < (2*N - 2*(i+1))/2; j++) {
+            for(int j=0; j < (N - (i+1)); j++) {
                 System.out.print(" ");
             }
 
@@ -31,3 +31,18 @@ public class NumericTrianglePattern {
     }
 
 }
+
+/*
+
+INPUT - 5
+
+OUTPUT -
+
+    1
+   232
+  34543
+ 4567654
+567898765
+
+
+ */

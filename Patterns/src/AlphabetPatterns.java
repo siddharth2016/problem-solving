@@ -13,7 +13,6 @@ public class AlphabetPatterns {
         pattern4(N);
         pattern5(N);
         pattern6(N);
-
     }
 
     public static void pattern1(int n) {
@@ -146,5 +145,4 @@ public class AlphabetPatterns {
             System.out.println();
         }
     }
-
 }

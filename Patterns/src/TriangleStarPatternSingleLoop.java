@@ -31,3 +31,15 @@ public class TriangleStarPatternSingleLoop {
         }
     }
 }
+
+/*
+
+Enter Value of N:
+5
+    *
+   * *
+  * * *
+ * * * *
+* * * * *
+
+ */

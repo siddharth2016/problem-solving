@@ -6,7 +6,7 @@ public class MinOfTwo {
         Scanner scanner = new Scanner(System.in);
         int A = scanner.nextInt();
         int B = scanner.nextInt();
-        System.out.println(A < B ? A : B);
+        System.out.println(Math.min(A, B));
         scanner.close();
     }
 

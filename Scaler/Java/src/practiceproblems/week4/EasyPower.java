@@ -1,8 +1,8 @@
-package practiceproblems.week5;
+package practiceproblems.week4;
 
 import java.util.Scanner;
 
-public class FromTopToDown {
+public class EasyPower {
 
     public static void main(String[] args) {
         // YOUR CODE GOES HERE
@@ -10,11 +10,13 @@ public class FromTopToDown {
         // DO NOT USE ARGUMENTS FOR INPUTS
         // E.g. 'Scanner' for input & 'System.out' for output
         Scanner scan = new Scanner(System.in);
-        int N = scan.nextInt();
-        scan.close();
-        for(int i=1; i<=N; i++) {
-            System.out.print(i + " ");
+        int A = scan.nextInt();
+        int B = scan.nextInt();
+        int res = 1;
+        for(int i=0; i<B; i++) {
+            res = ((res % 1000000000) * (A % 1000000000)) % 1000000000;
         }
+        System.out.println(res);
     }
 
 }

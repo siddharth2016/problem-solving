@@ -1,4 +1,4 @@
-package practiceproblems.week7;
+package practiceproblems.week7.array;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package lesson.week9;
+package lesson.week9.intro;
 
 import java.util.Scanner;
 
@@ -15,14 +15,14 @@ public class JailRoomsProblem {
     private static int getSqrtCountBinary(int n) {
         int low = 1;
         int high = n;
-        int mid = n / 2;
+        long mid = n / 2;
         while(low<=high) {
-            if(mid * mid < n) low = mid + 1;
-            else if(mid * mid > n) high = mid - 1;
+            if(mid * mid < n) low = (int)mid + 1;
+            else if(mid * mid > n) high = (int)mid - 1;
             else break;
             mid = (low + high) / 2;
         }
-        return mid;
+        return (int)mid;
     }
 
     public static void main(String[] args) {

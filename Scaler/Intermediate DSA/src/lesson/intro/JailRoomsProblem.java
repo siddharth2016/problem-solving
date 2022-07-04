@@ -1,4 +1,4 @@
-package lesson.week9.intro;
+package lesson.intro;
 
 import java.util.Scanner;
 

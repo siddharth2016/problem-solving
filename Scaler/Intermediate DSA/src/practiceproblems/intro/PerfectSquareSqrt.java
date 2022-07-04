@@ -1,4 +1,4 @@
-package practiceproblems.week9.intro;
+package practiceproblems.intro;
 
 public class PerfectSquareSqrt {
 

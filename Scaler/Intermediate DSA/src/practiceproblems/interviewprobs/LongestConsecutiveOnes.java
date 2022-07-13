@@ -51,11 +51,10 @@ public class LongestConsecutiveOnes {
         for(int i=0; i<n; i++) {
             if(A.charAt(i) == '0') {
                 int count = leftSum[i] + rightSum[i] + 1;
-                int ones = count > totalOnes ? totalOnes : count;
-                maxCount = Math.max(maxCount, ones);
+                maxCount = Math.max(maxCount, count);
             }
         }
-        return maxCount == 0 ? totalOnes : maxCount;
+        return maxCount == 0  || maxCount > totalOnes ? totalOnes : maxCount;
     }
 
 }

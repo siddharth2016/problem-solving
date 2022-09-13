@@ -24,15 +24,12 @@ public class LCSSumZero {
         int end = -1;
         for(int i=0;i<A.size();i++){
             sum += A.get(i);
-            System.out.println("SUM - " + sum);
             if(hm.containsKey(sum)){
                 int ln = i - hm.get(sum);
-                System.out.println("i - " + i + "hm.get(sum) - " + hm.get(sum) + "len-" + ln);
                 if(ln>max){
                     max = ln;
                     start = hm.get(sum)+1;
                     end = i;
-                    System.out.println("updated--" + "len-" + ln + " start-" + start + " end-" + end);
                 }
             }
             else {

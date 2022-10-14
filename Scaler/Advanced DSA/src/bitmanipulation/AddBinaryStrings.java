@@ -2,64 +2,36 @@ package src.bitmanipulation;
 
 public class AddBinaryStrings {
 
-    public String addBinary(String A, String B) {
+
+    public static void main(String[] args) {
+        System.out.println(addBinary("1101000", "111100110"));
+    }
+
+    public static String addBinary(String A, String B) {
         StringBuilder result = new StringBuilder();
 
-        char currCarry = '0';
-        char nextCarry = '0';
+        int carry = 0;
         int lenA = A.length();
         int lenB = B.length();
         int i=lenA-1;
         int j=lenB-1;
-        char nextBit = '0';
+        int nextBit = 0;
         while(i>=0 || j>=0) {
-            if(i<0) {
-                nextBit = B.charAt(j);
-                nextCarry = '0';
-                if(nextBit == '0' && currCarry == '1') {
-                    nextBit = '1';
-                    nextCarry = '0';
-                }
-                else if(nextBit == '1' && currCarry == '1') {
-                    nextBit = '0';
-                    nextCarry = '1';
-                }
+            nextBit = 0;
+            if(i >= 0) {
+                nextBit += (A.charAt(i) - '0');
             }
-            else if(j<0) {
-                nextBit = A.charAt(i);
-                nextCarry = '0';
-                if(nextBit == '0' && currCarry == '1') {
-                    nextBit = '1';
-                    nextCarry = '0';
-                }
-                else if(nextBit == '1' && currCarry == '1') {
-                    nextBit = '0';
-                    nextCarry = '1';
-                }
+            if(j >= 0) {
+                nextBit += (B.charAt(j) - '0');
             }
-            else if(A.charAt(i) == '1' && B.charAt(j) == '1') {
-                nextBit = '0';
-                nextCarry = '1';
-                if(currCarry == '1') nextBit = '1';
-            }
-            else if(A.charAt(i) == '1' || B.charAt(j) == '1') {
-                nextBit = '1';
-                nextCarry = '0';
-                if(currCarry == '1') {
-                    nextBit = '0';
-                    nextCarry = '1';
-                }
-            }
-            else {
-                nextBit = '0';
-                nextCarry = '0';
-                if(currCarry == '1') nextBit = '1';
-            }
-            result.append(nextBit);
-            currCarry = nextCarry;
+            nextBit += carry;
+            carry = nextBit / 2;
+            nextBit = nextBit % 2;
+            System.out.println(nextBit + " - " + ('0' - nextBit));
+            result.append((char)('0' + nextBit));
             i--; j--;
         }
-        if(currCarry == '1') result.append(currCarry);
+        if(carry == 1) result.append('1');
         result = result.reverse();
         return result.toString();
     }

@@ -35,6 +35,4 @@ public class AddBinaryStrings {
         result = result.reverse();
         return result.toString();
     }
-
-
 }

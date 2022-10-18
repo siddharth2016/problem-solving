@@ -13,7 +13,7 @@ public class CountTotalSetBits {
             if((A & (1<<i)) != 0) remainingOnes = (A % (1<<i)) + 1;
             else remainingOnes = 0;
 
-            totalGroupOnes = (A / (1<<(i+1))) * (1<<i);
+            totalGroupOnes = (long) (A / (1L << (i + 1))) * (1<<i);
 
             ans += remainingOnes + totalGroupOnes;
         }

@@ -15,4 +15,5 @@ public class MinXORPair {
         return ans;
     }
 
+
 }

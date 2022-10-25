@@ -1,4 +1,4 @@
-package src.maths;
+package src.maths.modular;
 
 import java.util.ArrayList;
 

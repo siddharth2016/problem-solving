@@ -1,4 +1,4 @@
-package src.maths;
+package src.maths.modular;
 
 public class PrimeModulo {
 

@@ -1,4 +1,4 @@
-package src.modulararithmetic;
+package src.maths;
 
 import java.util.HashMap;
 

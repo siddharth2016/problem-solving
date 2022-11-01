@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class ArrayWithConsecutiveElements {
-
     public int solve(ArrayList<Integer> A) {
         Collections.sort(A);
         for(int i=1; i<A.size(); i++) {
@@ -12,5 +11,4 @@ public class ArrayWithConsecutiveElements {
         }
         return 1;
     }
-
 }

@@ -8,7 +8,6 @@ public class BubbleSort {
         System.out.println(Arrays.toString(bubblesort(new int[]{5, 4, 3, 2, 1, 0, 0, 1, 4, 6, 5})));
     }
 
-
     public static int[] bubblesort(int[] arr) {
         for(int i=0; i<arr.length; i++) {
             for(int j=0; j<arr.length - i - 1; j++) {

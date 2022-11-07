@@ -3,7 +3,6 @@ package src.sorting.one;
 import java.util.ArrayList;
 
 public class MaxMod {
-
     public int solve(ArrayList<Integer> A) {
         int fl = Integer.MIN_VALUE;
         int sl = Integer.MIN_VALUE;
@@ -21,5 +20,4 @@ public class MaxMod {
         if(sl == Integer.MIN_VALUE) return 0;
         return sl % fl;
     }
-
 }

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Merge2SortedArrays {
-
     public ArrayList<Integer> solve(final List<Integer> A, final List<Integer> B) {
         ArrayList<Integer> result = new ArrayList<>();
         result.addAll(A);
@@ -19,8 +18,6 @@ public class Merge2SortedArrays {
             }
             result.set(j+1, temp);
         }
-
         return result;
     }
-
 }

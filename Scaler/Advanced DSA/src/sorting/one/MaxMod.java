@@ -16,7 +16,6 @@ public class MaxMod {
                 sl = elem;
             }
         }
-
         if(sl == Integer.MIN_VALUE) return 0;
         return sl % fl;
     }

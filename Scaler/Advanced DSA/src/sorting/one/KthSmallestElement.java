@@ -3,7 +3,6 @@ package src.sorting.one;
 import java.util.List;
 
 public class KthSmallestElement {
-
     public int kthsmallest(final List<Integer> A, int B) {
         int[] arr = new int[A.size()];
         for(int i=0; i<A.size(); i++) {
@@ -24,5 +23,4 @@ public class KthSmallestElement {
 
         return arr[B-1];
     }
-
 }

@@ -2,7 +2,6 @@ package src.sorting.one;
 
 import java.util.ArrayList;
 import java.util.Collections;
-
 public class ArrayWithConsecutiveElements {
     public int solve(ArrayList<Integer> A) {
         Collections.sort(A);

@@ -1,12 +1,11 @@
 package src.sorting.two;
 
-import java.util.Collections;
 import java.util.List;
 
 public class LargestNumber {
 
     public String largestNumber(final List<Integer> A) {
-        Collections.sort(A, (a, b) -> {
+        A.sort((a, b) -> {
             String val1 = "" + a + b;
             String val2 = "" + b + a;
             return val2.compareTo(val1);

@@ -18,7 +18,6 @@ public class SortedInsertPosition {
 
         return s;
     }
-
     public int searchInsert(int[] A, int B) {
         return binarySearch(A, B);
     }

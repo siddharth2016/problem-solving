@@ -34,7 +34,6 @@ public class RotatedSortedArraySearch {
 
         return -1;
     }
-
     public int search(final int[] A, int B) {
         return binarySearch(A, B);
     }

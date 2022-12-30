@@ -12,7 +12,6 @@ public class SubArrayWithZeroSum {
         }
         return result;
     }
-
     public int solve(int[] A) {
         long[] prefix = createPrefixSum(A);
         HashSet<Long> set = new HashSet<>();

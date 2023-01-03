@@ -16,11 +16,11 @@ public class WindowString {
         );
     }
 
-    public static boolean containsAll(String str, HashMap<Character, Integer> mapB, HashMap<Character, Integer> mapA) {
+    public static boolean containsAll(HashMap<Character, Integer> mapB, HashMap<Character, Integer> mapA) {
         boolean contains = true;
-        for(char chr1: str.toCharArray()) {
+        for(char chr1: mapB.keySet()) {
             System.out.println(chr1 + " " + mapA.get(chr1) + " " + mapB.get(chr1));
-            if(!mapA.containsKey(chr1) || (mapA.containsKey(chr1) && !mapB.get(chr1).equals(mapA.get(chr1)))) {
+            if(!mapA.containsKey(chr1) || (mapA.containsKey(chr1) && (mapB.get(chr1) <= mapA.get(chr1)))) {
                 contains = false;
                 break;
             }
@@ -45,7 +45,7 @@ public class WindowString {
 
         while(i < A.length() || j < A.length()) {
 
-            while(j < A.length() && !containsAll(B, mapB, mapA)) {
+            while(j < A.length() && !containsAll(mapB, mapA)) {
                 mapA.put(A.charAt(j), mapA.getOrDefault(A.charAt(j), 0) + 1);
                 j++;
             }
@@ -53,7 +53,7 @@ public class WindowString {
             System.out.println(i + " " + j);
             System.out.println(A.substring(i, j));
 
-            if(containsAll(B, mapB, mapA) && len > (j - i)) {
+            if(containsAll(mapB, mapA) && len > (j - i)) {
                 System.out.println("Inside updation..., len = " + (j - i));
                 start = i;
                 end = j;

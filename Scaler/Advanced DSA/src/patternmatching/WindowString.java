@@ -19,13 +19,11 @@ public class WindowString {
     public static boolean containsAll(HashMap<Character, Integer> mapB, HashMap<Character, Integer> mapA) {
         boolean contains = true;
         for(char chr1: mapB.keySet()) {
-            System.out.println(chr1 + " " + mapA.get(chr1) + " " + mapB.get(chr1));
-            if(!mapA.containsKey(chr1) || (mapA.containsKey(chr1) && (mapB.get(chr1) <= mapA.get(chr1)))) {
+            if(!mapA.containsKey(chr1) || mapB.get(chr1) > mapA.get(chr1)) {
                 contains = false;
                 break;
             }
         }
-        System.out.println("Contains " + contains);
         return contains;
     }
 
@@ -36,33 +34,37 @@ public class WindowString {
         for(char chr: B.toCharArray()) {
             mapB.put(chr, mapB.getOrDefault(chr, 0) + 1);
         }
-        System.out.println(mapB);
         int i = 0;
         int j = 0;
-        int start = 0;
-        int end = 0;
+        int start = -1;
+        int end = -1;
         int len = Integer.MAX_VALUE;
 
-        while(i < A.length() || j < A.length()) {
+        while(i < A.length()) {
 
-            while(j < A.length() && !containsAll(mapB, mapA)) {
+            while(!containsAll(mapB, mapA)) {
+
+                if (j == A.length()) {
+                    if (start == -1 && end == -1) {
+                        return "";
+                    }
+                    return A.substring(start, end);
+                }
                 mapA.put(A.charAt(j), mapA.getOrDefault(A.charAt(j), 0) + 1);
                 j++;
             }
 
-            System.out.println(i + " " + j);
-            System.out.println(A.substring(i, j));
-
-            if(containsAll(mapB, mapA) && len > (j - i)) {
-                System.out.println("Inside updation..., len = " + (j - i));
+            if(len > (j - i)) {
                 start = i;
                 end = j;
                 len = j - i;
-                System.out.println(A.substring(start, end));
             }
 
             mapA.put(A.charAt(i), mapA.get(A.charAt(i)) - 1);
             i++;
+        }
+        if (start == -1 && end == -1) {
+            return "";
         }
 
         return A.substring(start, end);

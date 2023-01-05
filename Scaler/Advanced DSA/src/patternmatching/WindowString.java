@@ -3,10 +3,6 @@ package src.patternmatching;
 import java.util.HashMap;
 
 
-/***
- * WRONG SOLUTION
- */
-
 public class WindowString {
 
     public static void main(String[] args) {

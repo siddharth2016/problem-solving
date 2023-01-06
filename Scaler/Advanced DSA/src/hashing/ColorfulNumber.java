@@ -12,7 +12,6 @@ public class ColorfulNumber {
             arr.add(a);
             A /= 10;
         }
-
         HashSet<Integer> set = new HashSet<>();
         for(int i=0; i< arr.size(); i++){
             int prod = 1;

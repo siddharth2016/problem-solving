@@ -9,13 +9,14 @@ public class PalindromeList {
         mid.next = null;
         second = reverseList(second);
 
-        while(first != null && second != null) {
-            if(first.val != second.val) return 0;
+        while(first != null && second != null && (first.val == second.val)) {
             first = first.next;
             second = second.next;
         }
 
-        if((first == null && second == null) || (first.next == null && second == null)) return 1;
+        if((first == null && second == null) || (first != null && first.next == null && second == null)) {
+            return 1;
+        }
 
         return 0;
     }
@@ -24,7 +25,7 @@ public class PalindromeList {
         ListNode slow = head;
         ListNode fast = head.next;
 
-        while(fast != null && fast.next != null) {
+        if(fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
@@ -33,15 +34,15 @@ public class PalindromeList {
     }
 
     public ListNode reverseList(ListNode head) {
-        ListNode curr = head;
+        ListNode current = head;
         ListNode prev = null;
         ListNode next;
 
-        while(curr != null) {
-            next = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = next;
+        while(current != null) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
         }
 
         return prev;

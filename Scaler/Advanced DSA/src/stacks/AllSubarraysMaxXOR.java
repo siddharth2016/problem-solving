@@ -1,5 +1,4 @@
 package src.stacks;
-
 import java.util.Stack;
 
 public class AllSubarraysMaxXOR {
@@ -18,5 +17,4 @@ public class AllSubarraysMaxXOR {
         }
         return result;
     }
-
 }

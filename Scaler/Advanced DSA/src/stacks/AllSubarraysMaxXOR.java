@@ -2,7 +2,6 @@ package src.stacks;
 import java.util.Stack;
 
 public class AllSubarraysMaxXOR {
-
     public int solve(int[] A) {
         Stack<Integer> stack = new Stack<>();
         int result = Integer.MIN_VALUE;

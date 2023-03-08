@@ -57,8 +57,6 @@ public class NIntegersContaining123 {
                 dq.removeFirst();
             }
         }
-
         return result;
     }
-
 }

@@ -1,8 +1,6 @@
 package src.trees;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Stack;
 
 class TreeNode {
@@ -20,28 +18,22 @@ class TreeNode {
 public class InorderTraversalWithoutRecursion {
 
     public int[] inorderTraversal(TreeNode A) {
-        ArrayList<TreeNode> arr = new ArrayList<>();
-        Set<TreeNode> set = new HashSet<>();
         Stack<TreeNode> stack = new Stack<>();
-
-        set.add(A);
-        stack.push(A);
-        while(!stack.isEmpty()) {
-            while(stack.peek().left != null && !set.contains(stack.peek().left)) {
-                set.add(stack.peek().left);
-                stack.push(stack.peek().left);
+        TreeNode root = A;
+        ArrayList<Integer> list = new ArrayList<>();
+        while(root!=null || !stack.isEmpty()){
+            while(root!= null){
+                stack.push(root);
+                root = root.left;
             }
-            TreeNode temp = stack.pop();
-            arr.add(temp);
-            if(temp.right != null) {
-                set.add(temp.right);
-                stack.push(temp.right);
-            }
+            root = stack.pop();
+            list.add(root.val);
+            root = root.right;
         }
 
-        int[] result = new int[arr.size()];
-        for(int i=0; i<arr.size(); i++) {
-            result[i] = arr.get(i).val;
+        int[] result = new int[list.size()];
+        for(int i=0; i<list.size(); i++) {
+            result[i] = list.get(i);
         }
 
         return result;

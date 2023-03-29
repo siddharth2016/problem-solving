@@ -95,9 +95,7 @@ public class AutoComplete {
                 pairList.add(new Pair(words[i], weights[i]));
             }
 
-            pairList.sort((pair1, pair2) -> {
-                return pair2.wt - pair1.wt;
-            });
+            pairList.sort((pair1, pair2) -> pair2.wt - pair1.wt);
 
             System.out.println(pairList);
 

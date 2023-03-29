@@ -2,100 +2,119 @@ package src.tries;
 import java.util.*;
 
 public class AutoComplete {
-    static class AutoCompleteSuggestion {
-        String str;
-        int weight;
-
-        public AutoCompleteSuggestion(String str, int weight) {
-            this.str = str;
-            this.weight = weight;
-        }
-    }
-
-    static class Node{
-        boolean isEnd;
-        HashMap<Character, Node> hm ;
-        ArrayList<AutoCompleteSuggestion> ar;
-        Node(){
-            this.hm = new HashMap<Character, Node>();
-            this.isEnd = false;
-            this.ar = new ArrayList<AutoCompleteSuggestion>();
-        }
-    }
-
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int t = Integer.parseInt(scanner.nextLine());
-        for(int k = 0; k < t; k++){
-            // read the second line of input
-            String line2 = scanner.nextLine();
 
-            // read the third line of input
-            String line3 = scanner.nextLine();
-            String[] words = line3.split(" ");
+        class Pair {
+            String str;
+            int wt;
 
-            // read the fourth line of input
-            String line4 = scanner.nextLine();
-            String[] weights = line4.split(" ");
-            AutoCompleteSuggestion[] suggestions = new AutoCompleteSuggestion[weights.length];
-
-            for (int i = 0; i < weights.length; i++) {
-                suggestions[i] = new AutoCompleteSuggestion(words[i], Integer.parseInt(weights[i]));
+            public Pair(String str, int wt) {
+                this.str = str;
+                this.wt = wt;
             }
 
-            Arrays.sort(suggestions, (p1, p2) -> {
-                int indexA = p1.weight;
-                int indexB = p2.weight;
-                return indexB-indexA;
+            @Override
+            public String toString() {
+                return "Pair{" +
+                        "str='" + str + '\'' +
+                        ", wt=" + wt +
+                        '}';
+            }
+        }
+
+        class Node {
+            char val;
+            Map<Character, Node> map;
+            ArrayList<Pair> pairArray;
+
+            public Node(char val) {
+                this.val = val;
+                this.map = new HashMap<>();
+                this.pairArray = new ArrayList<>();
+            }
+        }
+
+        class Trie {
+            public Node root;
+
+            public Trie() {
+                this.root = new Node('\0');
+            }
+
+            public void insert(Pair pair) {
+                Node temp = this.root;
+
+                for(Character chr: pair.str.toCharArray()) {
+                    if(!temp.map.containsKey(chr)) {
+                        temp.map.put(chr, new Node(chr));
+                    }
+                    temp = temp.map.get(chr);
+                    if(temp.pairArray.size() < 5) {
+                        temp.pairArray.add(pair);
+                    }
+                }
+            }
+
+            public ArrayList<Pair> search(String prefix) {
+                Node temp = this.root;
+                ArrayList<Pair> result = new ArrayList<>();
+
+                for(Character chr: prefix.toCharArray()) {
+                    if(!temp.map.containsKey(chr)) {
+                        result.add(new Pair("-1", -1));
+                        return result;
+                    }
+                    temp = temp.map.get(chr);
+                }
+
+                result.addAll(temp.pairArray);
+                return result;
+            }
+        }
+
+        Scanner scan = new Scanner(System.in);
+        int test = scan.nextInt(); scan.nextLine();
+        while(test-- != 0) {
+            int N = scan.nextInt();
+            int M = scan.nextInt(); scan.nextLine();
+            String[] words = new String[N];
+            for(int i=0; i<N; i++) {
+                words[i] = scan.next();
+            }
+            scan.nextLine();
+            int[] weights = new int[N];
+            for(int i=0; i<N; i++) {
+                weights[i] = scan.nextInt();
+            }
+            scan.nextLine();
+            String inputPrefix = scan.nextLine();
+            String[] prefixes = inputPrefix.split(" ");
+
+            ArrayList<Pair> pairList = new ArrayList<>();
+            for(int i=0; i<N; i++) {
+                pairList.add(new Pair(words[i], weights[i]));
+            }
+
+            pairList.sort((pair1, pair2) -> {
+                return pair2.wt - pair1.wt;
             });
 
-            Node root = new Node();
-            for(int i = 0; i  < suggestions.length; i++){
-                insert(suggestions[i].str, root, i);
-            }
-            // read the fifth line of input
-            String line5 = scanner.nextLine();
-            String[] searchwords = line5.split(" ");
-            for (String searchword : searchwords) {
-                search(searchword, root);
-            }
-        }
-    }
+            System.out.println(pairList);
 
-    public static void insert(String word, Node root,int wt ){
-        Node t = root;
-        for(int i = 0; i < word.length(); i++){
-            char ch = word.charAt(i);
-            if(t.hm.containsKey(ch)){
-                t = t.hm.get(ch);
-                if(t.ar.size() < 5){
-                    t.ar.add(new AutoCompleteSuggestion(word,wt));
+            Trie trie = new Trie();
+            for(Pair pair: pairList) {
+                trie.insert(pair);
+            }
+
+            for(int j=0; j<prefixes.length; j++) {
+                String str = prefixes[j];
+                ArrayList<Pair> result = trie.search(str);
+                for(int i=0; i<result.size(); i++) {
+                    System.out.print(result.get(i).str);
+                    if(i != result.size() - 1) System.out.print(" ");
                 }
-            }else{
-                Node nn = new Node();
-                t.hm.put(ch,nn);
-                t = nn;
-                t.ar.add(new AutoCompleteSuggestion(word,wt));
+                if(j != prefixes.length - 1) System.out.println();
             }
         }
-        t.isEnd = true;
-    }
-
-    public static void search(String word, Node root){
-        Node t = root;
-        for(int i = 0; i < word.length(); i++){
-            char ch = word.charAt(i);
-            if(t.hm.containsKey(ch)){
-                t = t.hm.get(ch);
-            }else{
-                System.out.print("-1 ");
-                System.out.println();
-                return;
-            }
-        }
-        for(int j = 0; j < t.ar.size(); j++){
-            System.out.print(t.ar.get(j).str+" ");
-        }
-        System.out.println();
     }
 }

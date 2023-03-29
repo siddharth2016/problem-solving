@@ -29,11 +29,7 @@ public class AutoComplete {
         for(int k = 0; k < t; k++){
             // read the second line of input
             String line2 = scanner.nextLine();
-            String[] NandM = line2.split(" ");
-            int[] nums2 = new int[NandM.length];
-            for (int i = 0; i < NandM.length; i++) {
-                nums2[i] = Integer.parseInt(NandM[i]);
-            }
+
             // read the third line of input
             String line3 = scanner.nextLine();
             String[] words = line3.split(" ");
@@ -47,12 +43,10 @@ public class AutoComplete {
                 suggestions[i] = new AutoCompleteSuggestion(words[i], Integer.parseInt(weights[i]));
             }
 
-            Arrays.sort(suggestions, new Comparator<AutoCompleteSuggestion>() {
-                public int compare(AutoCompleteSuggestion p1, AutoCompleteSuggestion p2) {
-                    int indexA = p1.weight;
-                    int indexB = p2.weight;
-                    return indexB-indexA;
-                }
+            Arrays.sort(suggestions, (p1, p2) -> {
+                int indexA = p1.weight;
+                int indexB = p2.weight;
+                return indexB-indexA;
             });
 
             Node root = new Node();
@@ -62,8 +56,8 @@ public class AutoComplete {
             // read the fifth line of input
             String line5 = scanner.nextLine();
             String[] searchwords = line5.split(" ");
-            for(int i = 0; i < searchwords.length; i++){
-                search(searchwords[i], root);
+            for (String searchword : searchwords) {
+                search(searchword, root);
             }
         }
     }

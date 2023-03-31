@@ -94,16 +94,12 @@ public class AutoComplete {
             for(int i=0; i<N; i++) {
                 pairList.add(new Pair(words[i], weights[i]));
             }
-
             pairList.sort((pair1, pair2) -> pair2.wt - pair1.wt);
-
             System.out.println(pairList);
-
             Trie trie = new Trie();
             for(Pair pair: pairList) {
                 trie.insert(pair);
             }
-
             for(int j=0; j<prefixes.length; j++) {
                 String str = prefixes[j];
                 ArrayList<Pair> result = trie.search(str);

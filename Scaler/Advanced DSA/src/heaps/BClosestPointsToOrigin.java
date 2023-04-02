@@ -13,7 +13,6 @@ public class BClosestPointsToOrigin {
             this.y = y;
         }
     }
-
     public int[][] solve(int[][] A, int B) {
         PriorityQueue<Pair> minHeap = new PriorityQueue<>(
                 (pair1, pair2) -> {

@@ -7,7 +7,6 @@ public class MaxArraySumAfterBSteps {
     public static void main(String[] args) {
         System.out.println(solve(new int[] {-50, 59, -80, -93, -51, -43, -35, -93, -2, 10, 18, 46, 68, -56, -7, -56, -54, -37, -57, -27, 0, 91, -40, 87, 88, 45, 11}, 7325));
     }
-
     public static void heapify(int[] arr, int index, int size) {
         while(index < size) {
             int maxIndex = index;

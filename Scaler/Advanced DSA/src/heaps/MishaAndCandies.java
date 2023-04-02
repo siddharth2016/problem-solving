@@ -23,5 +23,4 @@ public class MishaAndCandies {
         }
         return result;
     }
-
 }

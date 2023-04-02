@@ -2,7 +2,6 @@ package src.heaps;
 
 import java.util.Collections;
 import java.util.PriorityQueue;
-
 public class ProductOf3 {
 
     public int[] solve(int[] A) {

@@ -4,7 +4,6 @@ import java.util.Collections;
 import java.util.PriorityQueue;
 
 public class RunningMedian {
-
     public int[] solve(int[] A) {
         int[] result = new int[A.length];
         PriorityQueue<Integer> minHeap = new PriorityQueue<>();

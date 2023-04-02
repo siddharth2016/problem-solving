@@ -3,7 +3,6 @@ package src.heaps;
 import java.util.PriorityQueue;
 
 public class BthSmallestPrimeFraction {
-
     class Pair {
         float x;
         float y;

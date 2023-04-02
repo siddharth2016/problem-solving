@@ -3,7 +3,6 @@ package src.heaps;
 import java.util.PriorityQueue;
 
 public class ConnectRopes {
-
     public int solve(int[] A) {
         PriorityQueue<Integer> minHeap = new PriorityQueue<>();
         int minCost = 0;

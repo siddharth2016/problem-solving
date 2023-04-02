@@ -4,7 +4,6 @@ import java.util.Collections;
 import java.util.PriorityQueue;
 
 public class MagicianAndChocolates {
-
     public int nchoc(int A, int[] B) {
         PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
         for(int val: B) {

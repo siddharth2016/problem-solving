@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LetterPhone {
-
     Map<Character, String> map;
     StringBuilder sb;
     ArrayList<String> result;
@@ -39,5 +38,4 @@ public class LetterPhone {
             sb.deleteCharAt(sb.length() - 1);
         }
     }
-
 }

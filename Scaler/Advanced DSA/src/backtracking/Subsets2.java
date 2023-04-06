@@ -17,7 +17,6 @@ public class Subsets2 {
         allSubsets(A, 0, new ArrayList<>());
         return result;
     }
-
     public void allSubsets(ArrayList<Integer> arr, int index, ArrayList<Integer> temp) {
         if(index == arr.size()){
             return;
@@ -31,5 +30,4 @@ public class Subsets2 {
         temp.remove(temp.size() - 1);
         allSubsets(arr, index+1, temp);
     }
-
 }

@@ -11,7 +11,6 @@ public class AllUniquePermutations {
         permutations(A, 0, result, hs);
         return result;
     }
-
     public void permutations(ArrayList<Integer> arr, int index, ArrayList<ArrayList<Integer>> result, HashSet<String> hs) {
         if(index == arr.size()) {
             if(!hs.contains(arr.toString())) {
@@ -30,5 +29,4 @@ public class AllUniquePermutations {
             arr.set(index, temp);
         }
     }
-
 }

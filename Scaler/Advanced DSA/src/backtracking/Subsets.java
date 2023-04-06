@@ -2,12 +2,10 @@ package src.backtracking;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
 public class Subsets {
     public static void main(String[] args) {
         System.out.println(Arrays.deepToString(subsets(new int[]{1, 2, 3})));
     }
-
     public static int[][] subsets(int[] A) {
         Arrays.sort(A);
         ArrayList<ArrayList<Integer>> arr = new ArrayList<>();
@@ -23,7 +21,6 @@ public class Subsets {
         }
         return result;
     }
-
     public static void findSubsets(int[] A, int i, ArrayList<Integer> temp,
                                                      ArrayList<ArrayList<Integer>> result) {
         if(i == A.length) {

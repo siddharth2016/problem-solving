@@ -25,7 +25,6 @@ public class LetterPhone {
         totalCombinations(A, 0);
         return result;
     }
-
     public void totalCombinations(String str, int index) {
         if(index == str.length()) {
             result.add(sb.toString());

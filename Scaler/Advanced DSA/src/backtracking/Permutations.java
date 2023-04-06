@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class Permutations {
 
     static int count = 0;
-
     public static void main(String[] args) {
         ArrayList<Integer> arr = new ArrayList<>();
         arr.add(1);
@@ -13,13 +12,11 @@ public class Permutations {
         arr.add(3);
         System.out.println(permute(arr));
     }
-
     public static ArrayList<ArrayList<Integer>> permute(ArrayList<Integer> A) {
         ArrayList<ArrayList<Integer>> result = new ArrayList<>();
         permutations(A, 0, result);
         return result;
     }
-
     public static void permutations(ArrayList<Integer> arr, int i, ArrayList<ArrayList<Integer>> result) {
         if(i == arr.size()) {
             result.add(new ArrayList<>(arr));
@@ -35,5 +32,4 @@ public class Permutations {
             arr.set(i, temp);
         }
     }
-
 }

@@ -1,10 +1,8 @@
 package src.stacks;
-
 import java.util.Arrays;
 import java.util.Stack;
 
 public class MaximumRectangle {
-
     public static void main(String[] args) {
         System.out.println(solve(
                 new int[][]{
@@ -18,7 +16,6 @@ public class MaximumRectangle {
                 }
         ));
     }
-
     public static int[][] getPrefixSumMat(int[][] mat) {
         int[][] result = new int[mat.length][mat[0].length];
         int rows = mat.length;

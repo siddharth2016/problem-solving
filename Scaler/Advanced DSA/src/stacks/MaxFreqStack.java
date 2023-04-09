@@ -1,10 +1,8 @@
 package src.stacks;
-
 import java.util.HashMap;
 import java.util.Stack;
 
 public class MaxFreqStack {
-
     int maxFreq = 0;
     int j = 0;
     public int[] solve(int[][] A) {
@@ -23,7 +21,6 @@ public class MaxFreqStack {
                 delete(stackMap, freqMap, result);
             }
         }
-
         return result;
     }
 
@@ -47,13 +44,10 @@ public class MaxFreqStack {
             stackMap.remove(maxFreq);
             maxFreq--;
         }
-
         freqMap.put(val, freqMap.get(val) - 1);
-
         if(freqMap.get(val) == 0) {
             freqMap.remove(val);
         }
-
         result[j++] = val;
     }
 

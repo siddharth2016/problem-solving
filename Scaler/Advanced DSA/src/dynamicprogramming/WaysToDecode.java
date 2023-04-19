@@ -13,6 +13,7 @@ public class WaysToDecode {
         return solve(A, 0);
     }
 
+    // Top Down
     public int solve(String str, int index) {
         if(index == str.length()) return 1;
         if(str.charAt(index) == '0') return 0;
@@ -26,6 +27,25 @@ public class WaysToDecode {
         }
         dp[index] = singleDigitWays % mod;
         return dp[index];
+    }
+
+
+    // Bottom Up
+    public int numDecodingsBottomUp(String A) {
+        if(A.charAt(0) == '0') return 0;
+        if(A.length() == 1) return 1;
+        int[] dp = new int[A.length() + 1];
+        int mod = (int)Math.pow(10, 9) + 7;
+        dp[0] = 1;
+        dp[1] = 1;
+        for(int i=2; i<=A.length(); i++) {
+            if(A.charAt(i-1) != '0') dp[i] = dp[i-1];
+
+            if(A.charAt(i-2) == '1' || (
+                    A.charAt(i-2) == '2' && '0' <= A.charAt(i-1) && A.charAt(i-1) <= '6'
+            )) dp[i] = (dp[i] % mod + dp[i-2] % mod) % mod;
+        }
+        return dp[A.length()];
     }
 
 }

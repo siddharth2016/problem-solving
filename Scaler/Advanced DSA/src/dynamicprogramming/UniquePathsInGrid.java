@@ -1,5 +1,7 @@
 package src.dynamicprogramming;
 
+import java.util.Arrays;
+
 public class UniquePathsInGrid {
 
     // Bottom Up Approach
@@ -33,5 +35,25 @@ public class UniquePathsInGrid {
     }
 
 
+    // Top Down Approach
+    public int uniquePathsWithObstaclesTopDown(int[][] A) {
+        int[][] dp = new int[A.length][A[0].length];
+        for(int[] arr: dp) {
+            Arrays.fill(arr, -1);
+        }
+        return solve(A, 0, 0, A.length, A[0].length, dp);
+    }
 
+    public int solve(int[][] arr, int i, int j, int rows, int cols, int[][] dp) {
+        if(i >= rows || j >= cols) return 0;
+        if(arr[i][j] == 1) return 0;
+        if(i == rows-1 && j == cols-1) return 1;
+        if(dp[i][j] != -1) return dp[i][j];
+
+        int rightWays = solve(arr, i, j+1, rows, cols, dp);
+        int downWays = solve(arr, i+1, j, rows, cols, dp);
+
+        dp[i][j] = rightWays + downWays;
+        return dp[i][j];
+    }
 }

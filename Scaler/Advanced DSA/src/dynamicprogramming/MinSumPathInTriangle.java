@@ -3,7 +3,6 @@ package src.dynamicprogramming;
 import java.util.ArrayList;
 
 public class MinSumPathInTriangle {
-
     public int minimumTotal(ArrayList<ArrayList<Integer>> A) {
         int[][] dp = new int[A.size()][A.size()];
         dp[0][0] = A.get(0).get(0);
@@ -20,5 +19,4 @@ public class MinSumPathInTriangle {
         }
         return ans;
     }
-
 }

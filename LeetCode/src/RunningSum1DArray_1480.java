@@ -1,6 +1,6 @@
 package src;
 
-public class RunningSum1DArray {
+public class RunningSum1DArray_1480 {
 
     public int[] runningSum(int[] nums) {
         int[] sumArr = new int[nums.length];

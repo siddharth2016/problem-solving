@@ -1,6 +1,6 @@
 package src;
 
-public class ReverseLinkedList_206 {
+public class LC_206_ReverseLinkedList {
 
     public ListNode reverseList(ListNode head) {
         ListNode next = null;

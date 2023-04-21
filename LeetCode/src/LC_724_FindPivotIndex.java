@@ -1,6 +1,6 @@
 package src;
 
-public class FindPivotIndex_724 {
+public class LC_724_FindPivotIndex {
     public int[] createPrefixSumArr(int[] arr) {
         int[] result = new int[arr.length];
         for(int i=0; i<arr.length; i++) {

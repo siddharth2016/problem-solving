@@ -1,6 +1,6 @@
 package src;
 
-public class IsomorphicStrings_205 {
+public class LC_205_IsomorphicStrings {
 
     public boolean isIsomorphic(String s, String t) {
         if(s.length() != t.length()) return false;

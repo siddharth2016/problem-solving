@@ -1,6 +1,6 @@
 package src;
 
-public class IsSubsequence_392 {
+public class LC_392_IsSubsequence {
 
     public boolean isSubsequence(String s, String t) {
         int i = s.length() - 1;

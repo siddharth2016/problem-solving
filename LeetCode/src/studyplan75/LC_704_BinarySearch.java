@@ -1,4 +1,4 @@
-package src;
+package src.studyplan75;
 
 public class LC_704_BinarySearch {
 

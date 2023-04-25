@@ -1,4 +1,4 @@
-package src;
+package src.studyplan75;
 
 class ListNode {
       int val;

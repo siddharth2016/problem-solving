@@ -1,4 +1,4 @@
-package src;
+package src.studyplan75;
 
 import java.util.ArrayList;
 import java.util.List;

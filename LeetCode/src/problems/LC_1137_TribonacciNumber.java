@@ -1,4 +1,4 @@
-package src;
+package src.problems;
 
 public class LC_1137_TribonacciNumber {
 

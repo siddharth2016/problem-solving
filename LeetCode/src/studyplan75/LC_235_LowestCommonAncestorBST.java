@@ -9,7 +9,7 @@ public class LC_235_LowestCommonAncestorBST {
     public TreeNode lca(TreeNode root, int min, int max) {
         if(root == null) return null;
         if(min <= root.val && root.val <= max) return root;
-        if(min < root.val && root.val > max) return lca(root.left, min, max);
+        if(min < root.val) return lca(root.left, min, max);
         else return lca(root.right, min, max);
     }
 

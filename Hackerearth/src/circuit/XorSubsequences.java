@@ -5,7 +5,6 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class XorSubsequences {
-
     public static void main(String args[] ) throws Exception {
         Scanner scan = new Scanner(System.in);
         int N = scan.nextInt(); scan.nextLine();

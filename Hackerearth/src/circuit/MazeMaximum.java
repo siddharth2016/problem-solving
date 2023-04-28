@@ -37,7 +37,6 @@ public class MazeMaximum {
         }
         System.out.println(ans);
     }
-
     public static void updateMinRowValues(int[][] arr, int[] result) {
         for(int i=0; i<arr.length; i++) {
             int min = Integer.MAX_VALUE;

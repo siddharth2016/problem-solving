@@ -1,4 +1,4 @@
-package src.circuit;
+package src.april23circuit;
 
 import java.util.HashSet;
 import java.util.Scanner;

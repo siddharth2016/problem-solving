@@ -11,7 +11,6 @@ public class CuttingARod {
         }
         return findMaxCost(A, A.length, A.length, dp);
     }
-
     public int findMaxCost(int[] values, int n, int cap, int[][] dp) {
         if(n == 0 || cap == 0) return 0;
         if(dp[n][cap] != -1) return dp[n][cap];
@@ -24,5 +23,4 @@ public class CuttingARod {
         dp[n][cap] = Integer.max(include, exclude);
         return dp[n][cap];
     }
-
 }

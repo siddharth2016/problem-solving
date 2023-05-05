@@ -1,7 +1,5 @@
 package src.dynamicprogramming.repeat;
-
 public class CoinSumInfinite {
-
     public int coinchange2(int[] A, int B) {
         int[][] dp = new int[2][B+1];
         dp[0][0] = 1;

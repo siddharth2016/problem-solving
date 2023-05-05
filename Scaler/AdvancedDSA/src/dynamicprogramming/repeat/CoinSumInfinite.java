@@ -19,5 +19,4 @@ public class CoinSumInfinite {
         }
         return dp[0][B];
     }
-
 }

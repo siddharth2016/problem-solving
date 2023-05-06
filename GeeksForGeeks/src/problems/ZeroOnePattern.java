@@ -1,3 +1,5 @@
+package src.problems;
+
 import java.util.Scanner;
 
 public class ZeroOnePattern {

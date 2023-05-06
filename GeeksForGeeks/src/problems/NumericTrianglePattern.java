@@ -1,6 +1,8 @@
+package src.problems;
+
 import java.util.Scanner;
 
-public class StarPattern {
+public class NumericTrianglePattern {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -8,16 +10,25 @@ public class StarPattern {
         scanner.nextLine();
 
         for (int i=0; i<N; i++) {
-            for (int j=0; j<(N-(i+1)); j++) {
+
+            for(int j=0; j < (N - (i+1)); j++) {
                 System.out.print(" ");
             }
-            for (int j=0; j<(2*(i+1)-1); j++) {
-                System.out.print("*");
+
+            for (int j=i+1; j<=(2*i + 1); j++) {
+                System.out.print(j);
             }
-            for (int j=0; j<(N-(i+1)); j++) {
+
+            for (int j=2*i; j>=i+1; j--) {
+                System.out.print(j);
+            }
+
+            for(int j=0; j < (N - (i+1)); j++) {
                 System.out.print(" ");
             }
+
             System.out.println();
+
         }
     }
 
@@ -25,22 +36,15 @@ public class StarPattern {
 
 /*
 
-INPUT - 3
+INPUT - 5
+
 OUTPUT -
 
-  *
- ***
-*****
+    1
+   232
+  34543
+ 4567654
+567898765
 
-INPUT - 7
-OUTPUT -
-
-      *
-     ***
-    *****
-   *******
-  *********
- ***********
-*************
 
  */

@@ -1,4 +1,4 @@
-/* https://practice.geeksforgeeks.org/problems/wine-buying-and-selling/1 */
+package src.problems;/* https://practice.geeksforgeeks.org/problems/wine-buying-and-selling/1 */
 
 import java.util.Deque;
 import java.util.LinkedList;

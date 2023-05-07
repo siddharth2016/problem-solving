@@ -1,4 +1,4 @@
-package src;
+package src.classical;
 
 import java.util.Arrays;
 import java.util.Scanner;

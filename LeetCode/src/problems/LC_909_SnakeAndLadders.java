@@ -24,7 +24,7 @@ public class LC_909_SnakeAndLadders {
                 for(int next=val+1;next<=Math.min(val+6,n*n-1);next++)
                 {
                     int move=arr[next]>-1?arr[next]:next;
-                    if(visited[move]==false)
+                    if(!visited[move])
                     {
                         visited[move]=true;
                         q.add(move);

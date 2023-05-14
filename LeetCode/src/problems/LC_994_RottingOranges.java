@@ -6,14 +6,7 @@ import java.util.Queue;
 
 public class LC_994_RottingOranges {
 
-    public static void main(String[] args) {
-        System.out.println(orangesRotting(new int[][] {
-                {0, 1},
-                {2, 0}
-        }));
-    }
-
-    static class Pair {
+    class Pair {
         int x;
         int y;
         public Pair(int i, int j) {
@@ -21,23 +14,20 @@ public class LC_994_RottingOranges {
             y = j;
         }
     }
-    public static int orangesRotting(int[][] grid) {
+    public int orangesRotting(int[][] grid) {
         Queue<Pair> queue = new LinkedList<>();
         int[][] visited = new int[grid.length][grid[0].length];
         for(int[] arr: visited) {
             Arrays.fill(arr, -1);
         }
-        int countOne = 0;
         for(int i=0; i<grid.length; i++) {
             for(int j=0; j<grid[0].length; j++) {
                 if(grid[i][j] == 2) {
                     queue.add(new Pair(i, j));
                     visited[i][j] = 0;
                 }
-                // if(grid[i][j] == 1) countOne++;
             }
         }
-        // if(countOne == 0) return 0;
         while(!queue.isEmpty()) {
             Pair pair = queue.poll();
             int i = pair.x;
@@ -63,8 +53,7 @@ public class LC_994_RottingOranges {
                 queue.add(new Pair(i, j-1));
             }
         }
-        System.out.println(Arrays.deepToString(visited));
-        System.out.println(Arrays.deepToString(grid));
+
         int ans = 0;
         for(int i=0; i<grid.length; i++) {
             for(int j=0; j<grid[0].length; j++) {
@@ -74,7 +63,6 @@ public class LC_994_RottingOranges {
                 ans = Integer.max(ans, visited[i][j]);
             }
         }
-
         return ans;
     }
 

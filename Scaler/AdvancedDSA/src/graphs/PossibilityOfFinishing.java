@@ -5,7 +5,11 @@ import java.util.List;
 
 public class PossibilityOfFinishing {
 
-    public int solve(int A, int[] B, int[] C) {
+    public static void main(String[] args) {
+        System.out.println(solve(3, new int[]{1, 2}, new int[]{2, 3}));
+    }
+
+    public static int solve(int A, int[] B, int[] C) {
         // construct a graph
         List<List<Integer>> adjList = new ArrayList<>();
         for(int i=0; i<=A; i++) {
@@ -28,7 +32,7 @@ public class PossibilityOfFinishing {
         return possible ? 1 : 0;
     }
 
-    public boolean dfsCycle(List<List<Integer>> adjList, int[] visited, int[] stack, int node) {
+    public static boolean dfsCycle(List<List<Integer>> adjList, int[] visited, int[] stack, int node) {
         if(visited[node] == 1 && stack[node] == 1) return false;
         if(visited[node] == 1) return true;
         visited[node] = 1;

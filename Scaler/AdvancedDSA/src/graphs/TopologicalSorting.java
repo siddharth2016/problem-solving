@@ -21,6 +21,8 @@ public class TopologicalSorting {
     }
 
     public static int[] solve(int A, int[][] B) {
+
+        // construct graph and in-degree array
         List<List<Integer>> adjList = new ArrayList<>();
         for(int i=0; i<=A; i++) {
             adjList.add(new ArrayList<>());

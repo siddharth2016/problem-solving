@@ -21,57 +21,48 @@ public class ReversingEdges {
         ));
     }
 
+    static class Pair {
+        int node;
+        int dist;
+        public Pair(int n, int d) {
+            node = n;
+            dist = d;
+        }
+    }
+
     public static int reverseEdges(int A, int[][] B) {
-        // created un-directed adjList
-        List<Set<Integer>> adjList1 = new ArrayList<>();
+        // construct an undirected graph with weights 0 and 1;
+        List<List<Pair>> adjList = new ArrayList<>();
         for(int i=0; i<=A; i++) {
-            adjList1.add(new HashSet<>());
+            adjList.add(new ArrayList<>());
         }
         for(int[] edge: B) {
-            adjList1.get(edge[0]).add(edge[1]);
-            adjList1.get(edge[1]).add(edge[0]);
+            adjList.get(edge[0]).add(new Pair(edge[1], 0));
+            adjList.get(edge[1]).add(new Pair(edge[0], 1));
         }
 
-        // find shortest path from 1 to A
+        // applying dijkstra's to find shorted path
         int[] visited = new int[A+1];
-        int[] parent = new int[A+1];
-        Queue<Integer> queue = new LinkedList<>();
-        queue.add(1);
-        Arrays.fill(parent, -1);
-        visited[1] = 1;
+        Arrays.fill(visited, -1);
+        PriorityQueue<Pair> queue = new PriorityQueue<>(
+                Comparator.comparing(p -> p.dist)
+        );
+        visited[1] = 0;
+        queue.offer(new Pair(1, 0));
         while(!queue.isEmpty()) {
-            int first = queue.poll();
-            for(int val: adjList1.get(first)) {
-                if(visited[val] == 0) {
-                    visited[val] = 1;
-                    parent[val] = first;
-                    queue.add(val);
+            Pair pair = queue.poll();
+            for(Pair temp: adjList.get(pair.node)) {
+                if(visited[temp.node] == -1) {
+                    visited[temp.node] = visited[pair.node] + temp.dist;
+                    queue.offer(new Pair(temp.node, visited[temp.node]));
+                }
+                else if(visited[temp.node] > visited[pair.node] + temp.dist) {
+                    visited[temp.node] = visited[pair.node] + temp.dist;
+                    queue.offer(new Pair(temp.node, visited[temp.node]));
                 }
             }
         }
-
-        if(parent[A] == -1) return -1;
-
-        // create adjList for direct graph
-        List<Set<Integer>> adjList2 = new ArrayList<>();
-        for(int i=0; i<=A; i++) {
-            adjList2.add(new HashSet<>());
-        }
-        for(int[] edge: B) {
-            adjList2.get(edge[0]).add(edge[1]);
-        }
-
-        // path from A to 1, check in directed graph, if for any edge path is not present increase count by 1
-        int node = A;
-        int count = 0;
-        while(node != -1) {
-            int curr = node;
-            int prev = parent[curr];
-            if(prev != -1 && !adjList2.get(prev).contains(curr)) count++;
-            node = prev;
-        }
-
-        return count;
+        return visited[A];
     }
 
 }

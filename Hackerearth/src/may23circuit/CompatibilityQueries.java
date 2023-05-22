@@ -1,5 +1,7 @@
 package src.may23circuit;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 
 // partially accepted 50%
@@ -48,13 +50,31 @@ class Trie {
         }
     }
 
-    public int search(int X, int num, Node temp, int i) {
-        if(temp==null) return 0;
-        if(X == num) return temp.sum;
-        if(i >= 32) return 0;
-        if((X&(1<<i)) != 0) num += (1<<i);
-        if((X & (1<<i)) == 0) return search(X, num, temp.left, i+1) + search(X, num, temp.right, i+1);
-        else return search(X, num, temp.left, i+1);
+    public long search(int X) {
+        Queue<Pair> queue = new LinkedList<>();
+        queue.add(new Pair(root, X));
+        long ans = 0L;
+        while(!queue.isEmpty()) {
+            Pair pair = queue.poll();
+            Node node = pair.node;
+            int num = pair.num;
+            if(num == 0) ans += node.sum;
+            else {
+                int bit = num & 1;
+                if (node.left != null) queue.add(new Pair(node.left, num >> 1));
+                if (bit == 0 && node.right != null) queue.add(new Pair(node.right, num >> 1));
+            }
+        }
+        return ans;
+    }
+}
+
+class Pair {
+    Node node;
+    int num;
+    public Pair(Node node, int num) {
+        this.node = node;
+        this.num = num;
     }
 }
 
@@ -73,7 +93,7 @@ public class CompatibilityQueries {
         int q = scan.nextInt(); scan.nextLine();
         for(int i=0; i<q; i++) {
             int X = scan.nextInt();scan.nextLine();
-            System.out.println(trie.search(X, 0, trie.root, 0));
+            System.out.println(trie.search(X));
         }
     }
 

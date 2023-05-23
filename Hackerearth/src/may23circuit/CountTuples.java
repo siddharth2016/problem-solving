@@ -17,9 +17,6 @@ Count of tuples can never be negative, it should be at least 0
  */
 
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import java.util.Scanner;
 
 public class CountTuples {
@@ -38,6 +35,19 @@ public class CountTuples {
         }
     }
 
+    public static long countTuples(long[] arr, int n) {
+        int ans = 0;
+        for(int i=0; i<n; i++) {
+            for(int j=i+1; j<n; j++) {
+                for(int k=j+1; k<n; k++) {
+                    if(Long.min(arr[i], arr[k]) <= arr[j] && arr[j] <= Long.max(arr[i], arr[k])) ans++;
+                }
+            }
+        }
+        return ans;
+    }
+
+    /*
     public static long countTuples(long[] arr, int n) {
         List<Long> leftSmaller = createLeftSmaller(arr, n);
         List<Long> rightLarger = createRightLarger(arr, n);
@@ -79,10 +89,7 @@ public class CountTuples {
         List<Long> ans = new ArrayList<>();
         List<Long> temp = new ArrayList<>();
         for (int i = 0; i < n; i++) {
-            int c = Collections.binarySearch(temp, arr[i], (a,b) -> {
-                if(a >= b) return -1;
-                return 1;
-            });
+            int c = Collections.binarySearch(temp, arr[i], Collections.reverseOrder());
             if (c < 0) c = -c - 1;
             ans.add((long)c);
             temp.add(c, arr[i]);
@@ -94,10 +101,7 @@ public class CountTuples {
         List<Long> ans = new ArrayList<>();
         List<Long> temp = new ArrayList<>();
         for (int i = n - 1; i >= 0; i--) {
-            int c = Collections.binarySearch(temp, arr[i], (a, b) -> {
-                if(a >= b) return -1;
-                return 1;
-            });
+            int c = Collections.binarySearch(temp, arr[i], Collections.reverseOrder());
             if (c < 0) c = -c - 1;
             ans.add((long)c);
             temp.add(c, arr[i]);
@@ -120,6 +124,58 @@ public class CountTuples {
         }
         return ans;
     }
+     */
 
 
 }
+
+
+/*
+
+
+9
+17
+0
+79
+284
+309
+74
+87
+491
+1
+225
+1
+22
+315
+332
+65
+387
+329
+363
+276
+229
+42
+52
+22
+13
+23
+2
+9
+427
+61
+30
+4
+14
+405
+520
+453
+40
+42
+45655
+37830
+16473
+46421
+24097
+
+
+ */

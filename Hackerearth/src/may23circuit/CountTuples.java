@@ -12,6 +12,8 @@ Sample Test Case
 Output -> 1
 Expected Output (by online judge) -> -1
 
+Count of tuples can never be negative, it should be at least 0
+
  */
 
 

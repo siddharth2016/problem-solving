@@ -1,7 +1,10 @@
 package src.may23circuit;
 
-// not accepted solution
+// partially accepted solution
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class ANDSubsequences {
@@ -31,24 +34,32 @@ public class ANDSubsequences {
         }
         if(notPossible) return -1;
 
-        int[] bits = new int[32];
+        List<List<Integer>> bitMap = new ArrayList<>();
         for(int val: arr) {
-            for(int i=0; i<32; i++) {
-                if((val&(1<<i)) != 0) bits[i]++;
+            List<Integer> bits = Arrays.asList(new Integer[30]);
+            for(int i=0; i<30; i++) {
+                if((val & (1<<i)) != 0) bits.set(i, 1);
             }
+            bitMap.add(bits);
         }
 
-        int msb = 0;
-        while(msb < 32) {
-            if(x == 0) break;
-            x = x>>1;
-            msb++;
+        int msb = 29;
+        while(msb >= 0) {
+            if((x & 1<<msb) != 0) break;
+            msb--;
         }
-        msb = msb - 1;
 
-        int ans = bits[msb];
-        for(int i=msb; i<32; i++) {
-            ans = Integer.max(ans, bits[i]);
+        int ans = -1;
+        for (int bit = msb; bit < 30; bit++) {
+            int count = 0;
+            int mask = (int)Math.pow(2, 30) - 1;
+            for (int i = 0; i < n; i++) {
+                if(bitMap.get(i).get(bit) != null && (mask & arr[i]) >= x) {
+                    mask = mask & arr[i];
+                    count++;
+                }
+            }
+            if(count != 0) ans = Integer.max(ans, count);
         }
 
         return ans;

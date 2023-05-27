@@ -21,4 +21,16 @@ public class LC_26_RemoveDuplicatesFromSortedArray {
         return i+1;
     }
 
+    public int removeDuplicatesUsingAuxArray(int[] nums) {
+        int[] aux = new int[201];
+        for(int val: nums) {
+            aux[100 - val] = 1;
+        }
+        int j = 0;
+        for(int i=-100; i<=100; i++) {
+            if(aux[100 - i] == 1) nums[j++] = i;
+        }
+        return j;
+    }
+
 }

@@ -7,11 +7,9 @@ public class LC_274_HIndex {
         for(int val: citations) {
             dp[val]++;
         }
+        int ans = 0;
         for(int i=999; i>=0; i--) {
             dp[i] += dp[i+1];
-        }
-        int ans = 0;
-        for(int i=1000; i>=0; i--) {
             if(i <= dp[i]) {
                 ans = i;
                 break;

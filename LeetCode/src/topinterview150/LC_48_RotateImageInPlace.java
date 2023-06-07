@@ -22,7 +22,6 @@ public class LC_48_RotateImageInPlace {
             reverse(mat[i], 0, cols-1);
         }
     }
-
     public void reverse(int[] arr, int i, int j) {
         while(i < j) {
             int temp = arr[i];

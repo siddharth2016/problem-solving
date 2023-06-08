@@ -18,5 +18,4 @@ public class LC_45_JumpGame2 {
         }
         return dp[nums.length-1];
     }
-
 }

@@ -2,7 +2,6 @@ package src.topinterview150;
 
 import java.util.HashSet;
 import java.util.Set;
-
 public class LC_3_LongestSubstringWithoutRepeatingCharacters {
     public int lengthOfLongestSubstring(String s) {
         int maxLength = Integer.MIN_VALUE;
@@ -21,5 +20,4 @@ public class LC_3_LongestSubstringWithoutRepeatingCharacters {
         maxLength = Integer.max(maxLength, set.size());
         return maxLength;
     }
-
 }

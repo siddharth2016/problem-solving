@@ -12,6 +12,7 @@ public class LC_290_WordPattern {
     public static boolean wordPattern(String pattern, String s) {
         String[] words = s.split(" ");
         if(words.length != pattern.length()) return false;
+
         Map<Character, String> map = new HashMap<>();
         int i = 0;
         for(char chr: pattern.toCharArray()) {
@@ -29,5 +30,4 @@ public class LC_290_WordPattern {
         }
         return true;
     }
-
 }

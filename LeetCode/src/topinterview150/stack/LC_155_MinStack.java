@@ -6,8 +6,8 @@ public class LC_155_MinStack {
 
     static class MinStack {
 
-        private Stack<Integer> mainStack;
-        private Stack<Integer> minStack;
+        private final Stack<Integer> mainStack;
+        private final Stack<Integer> minStack;
 
         public MinStack() {
             mainStack = new Stack<>();

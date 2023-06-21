@@ -13,7 +13,6 @@ public class FlattenArray {
                 .forEach(System.out::println);
 
         System.out.println(flatten2(arr));
-
     }
 
 

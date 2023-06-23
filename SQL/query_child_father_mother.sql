@@ -86,3 +86,43 @@ INNER JOIN (
     WHERE T.gender = 'F'
 ) AS A
 ON R.cid = A.id;
+
+
+SELECT P1.name AS child, P2.name AS father, P3.name AS mother
+FROM people P1 INNER JOIN relation R1
+ON P1.id = R1.cid 
+INNER JOIN (
+    SELECT id, "name" FROM people WHERE gender = 'M'
+) AS P2
+ON R1.pid = P2.id 
+INNER JOIN (
+    SELECT Y.id, X.name FROM people Y
+    INNER JOIN relation R2 ON Y.id = R2.cid
+    INNER JOIN people X
+    ON R2.pid = X.id
+    WHERE X.gender = 'F'
+) AS P3 
+ON R1.cid = P3.id;
+
+
+
+SELECT P3.name AS child, P2.name AS father, P1.name AS mother
+FROM
+(
+    SELECT Y.id, X.name FROM people Y
+    INNER JOIN relation R2 ON Y.id = R2.cid
+    INNER JOIN people X
+    ON R2.pid = X.id
+    WHERE X.gender = 'F'
+) AS P1 
+INNER JOIN 
+(
+    SELECT Y.id, X.name FROM people Y
+    INNER JOIN relation R2 ON Y.id = R2.cid
+    INNER JOIN people X
+    ON R2.pid = X.id
+    WHERE X.gender = 'M'
+) AS P2
+ON P1.id = P2.id
+INNER JOIN people P3
+ON P1.id = P3.id;

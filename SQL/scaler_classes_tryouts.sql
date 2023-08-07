@@ -19,3 +19,6 @@ SELECT * FROM relation;
 
 SELECT 'hello' FROM relation;
 
+SELECT * FROM people;
+
+SELECT count("name"), gender FROM people GROUP BY gender;

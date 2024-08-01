@@ -9,6 +9,7 @@ public class Main {
         System.out.println(
                 a.prop1(true)
         );
+        System.out.println(((Dog)a).a);
     }
 
 }

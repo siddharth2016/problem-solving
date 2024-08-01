@@ -1,4 +1,4 @@
-package src.lld1.exercises;
+package exercises;
 
 import java.util.Stack;
 

@@ -6,4 +6,8 @@ public class Animal {
         return false;
     }
 
+    public boolean prop1(boolean v) {
+        return v;
+    }
+
 }

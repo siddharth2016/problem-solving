@@ -6,6 +6,9 @@ public class Main {
         Animal a = new Dog();
         System.out.println(a.prop1());
         System.out.println(((Dog)a).prop2());
+        System.out.println(
+                a.prop1(true)
+        );
     }
 
 }

@@ -14,6 +14,8 @@ public class ClientExec3 {
         ExecutorService executorService = Executors.newCachedThreadPool();
         Future<List<Integer>> futureArrayCreator = executorService.submit(arrayCreator);
         System.out.println(futureArrayCreator.get());
+        System.out.println(1);
+        System.out.println(4);
     }
 
 }

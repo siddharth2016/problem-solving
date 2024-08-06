@@ -1,4 +1,4 @@
-package exercises.generics;
+package exercises.collections;
 
 import java.util.Iterator;
 import java.util.TreeSet;

@@ -1,4 +1,4 @@
-package exercises.generics;
+package exercises.collections;
 
 public class Car implements Comparable<Car> {
 

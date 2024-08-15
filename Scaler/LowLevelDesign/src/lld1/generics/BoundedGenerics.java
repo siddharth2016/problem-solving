@@ -16,8 +16,10 @@ public class BoundedGenerics {
         System.out.println(doSum(doubleList));
         doAppend(numberList, 1);
         doAppend(objectList, 2);
-        System.out.println(numberList);
-        System.out.println(objectList);
+        doPrint(numberList);
+        doPrint(objectList);
+
+
     }
 
     private static Integer doSum(List<? extends Number> list) {
@@ -30,5 +32,9 @@ public class BoundedGenerics {
 
     private static void doAppend(List<? super Integer> list, Integer value) {
         list.add(value);
+    }
+
+    private static void doPrint(List<?> list) {
+        System.out.println(list);
     }
 }

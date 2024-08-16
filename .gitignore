@@ -26,3 +26,6 @@ hs_err_pid*
 *.iml
 .idea/
 .DS_Store
+
+# Exercism
+.exercism/

@@ -9,6 +9,8 @@ public class Client {
         Set<Integer> integerTreeSet = new TreeSet<>();
         SortedSet<Integer> sortedSet = new TreeSet<>();
         Set<Integer> linkSet = new LinkedHashSet<>();
+        Set<Names> enumSet = EnumSet.allOf(Names.class);
+        System.out.println(enumSet);
 
         Queue<Integer> integerQueue = new LinkedList<>();
         Deque<Integer> integerDeque = new LinkedList<>();
@@ -23,4 +25,9 @@ public class Client {
         Map<Integer, Integer> map3 = new LinkedHashMap<>();
     }
 
+}
+
+enum Names {
+    SIDDHARTH,
+    ABISHEK
 }

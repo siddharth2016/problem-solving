@@ -1,4 +1,4 @@
-package src.lld2.singleton;
+package src.lld2.singleton.filebasedmanager;
 
 import java.io.FileInputStream;
 import java.io.IOException;

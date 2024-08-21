@@ -1,4 +1,4 @@
-package src.lld2.singleton;
+package src.lld2.singleton.filebasedmanager;
 
 public class FileBasedConfigurationManagerImpl extends FileBasedConfigurationManager {
 
